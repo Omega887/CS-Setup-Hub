@@ -1,0 +1,584 @@
+[
+  {
+    "id": "winget",
+    "name": "Microsoft App Installer / winget",
+    "category": "Package Managers",
+    "description": "Windows Package Manager. If winget is missing, this opens the official Microsoft Store App Installer page.",
+    "preset": "Essential",
+    "url": "ms-windows-store://pdp/?ProductId=9NBLGGH4NNS1",
+    "verifyCommand": "winget --version",
+    "tags": [ "windows", "package-manager" ]
+  },
+  {
+    "id": "chocolatey",
+    "name": "Chocolatey",
+    "category": "Package Managers",
+    "description": "Popular Windows package manager used when a package is not available in winget.",
+    "preset": "Optional",
+    "command": "Set-ExecutionPolicy Bypass -Scope Process -Force; [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; Invoke-Expression ((New-Object Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))",
+    "verifyCommand": "choco --version",
+    "tags": [ "windows", "package-manager" ]
+  },
+  {
+    "id": "scoop",
+    "name": "Scoop",
+    "category": "Package Managers",
+    "description": "Developer-focused package manager for command-line tools.",
+    "preset": "Optional",
+    "command": "Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force; Invoke-RestMethod get.scoop.sh | Invoke-Expression",
+    "verifyCommand": "scoop --version",
+    "tags": [ "windows", "package-manager" ]
+  },
+  {
+    "id": "git",
+    "name": "Git",
+    "category": "Developer Tools",
+    "description": "Version control system required for most development workflows.",
+    "preset": "Essential",
+    "wingetId": "Git.Git",
+    "verifyCommand": "git --version",
+    "tags": [ "git", "vcs" ]
+  },
+  {
+    "id": "gh",
+    "name": "GitHub CLI",
+    "category": "Developer Tools",
+    "description": "Command-line tool for GitHub repositories, issues, pull requests, and authentication.",
+    "preset": "Full",
+    "wingetId": "GitHub.cli",
+    "verifyCommand": "gh --version",
+    "tags": [ "github", "cli" ]
+  },
+  {
+    "id": "windows-terminal",
+    "name": "Windows Terminal",
+    "category": "Developer Tools",
+    "description": "Modern terminal for PowerShell, Command Prompt, and WSL shells.",
+    "preset": "Essential",
+    "wingetId": "Microsoft.WindowsTerminal",
+    "verifyCommand": "wt --version",
+    "tags": [ "terminal" ]
+  },
+  {
+    "id": "powershell",
+    "name": "PowerShell 7",
+    "category": "Developer Tools",
+    "description": "Modern cross-platform PowerShell runtime.",
+    "preset": "Full",
+    "wingetId": "Microsoft.PowerShell",
+    "verifyCommand": "pwsh --version",
+    "tags": [ "shell" ]
+  },
+  {
+    "id": "wsl-ubuntu",
+    "name": "WSL + Ubuntu",
+    "category": "Developer Tools",
+    "description": "Linux environment for Windows. This may require restart and Windows feature enablement.",
+    "preset": "Full",
+    "requiresRestart": true,
+    "command": "wsl --install -d Ubuntu",
+    "verifyCommand": "wsl --status",
+    "tags": [ "linux", "wsl" ]
+  },
+  {
+    "id": "docker-desktop",
+    "name": "Docker Desktop",
+    "category": "Developer Tools",
+    "description": "Container runtime for backend, database, cloud, and DevOps workflows.",
+    "preset": "Full",
+    "requiresRestart": true,
+    "wingetId": "Docker.DockerDesktop",
+    "verifyCommand": "docker --version",
+    "tags": [ "containers", "devops" ]
+  },
+  {
+    "id": "postman",
+    "name": "Postman",
+    "category": "Developer Tools",
+    "description": "API development and testing client.",
+    "preset": "Full",
+    "wingetId": "Postman.Postman",
+    "tags": [ "api" ]
+  },
+  {
+    "id": "vscode",
+    "name": "Visual Studio Code",
+    "category": "Editors and IDEs",
+    "description": "Lightweight editor for most languages and frameworks.",
+    "preset": "Essential",
+    "wingetId": "Microsoft.VisualStudioCode",
+    "verifyCommand": "code --version",
+    "tags": [ "editor", "ide" ]
+  },
+  {
+    "id": "visual-studio-community",
+    "name": "Visual Studio Community",
+    "category": "Editors and IDEs",
+    "description": "Full Microsoft IDE for C#, .NET, C++, desktop, and game development workloads.",
+    "preset": "Full",
+    "wingetId": "Microsoft.VisualStudio.2022.Community",
+    "tags": [ "ide", "csharp", "cpp" ]
+  },
+  {
+    "id": "vim",
+    "name": "Vim",
+    "category": "Editors and IDEs",
+    "description": "Classic modal text editor.",
+    "preset": "Full",
+    "wingetId": "vim.vim",
+    "verifyCommand": "vim --version",
+    "tags": [ "editor" ]
+  },
+  {
+    "id": "neovim",
+    "name": "Neovim",
+    "category": "Editors and IDEs",
+    "description": "Modern Vim-based editor with strong plugin and LSP ecosystem.",
+    "preset": "Full",
+    "wingetId": "Neovim.Neovim",
+    "verifyCommand": "nvim --version",
+    "tags": [ "editor" ]
+  },
+  {
+    "id": "emacs",
+    "name": "Emacs",
+    "category": "Editors and IDEs",
+    "description": "Extensible editor and programming environment.",
+    "preset": "Optional",
+    "wingetId": "GNU.Emacs",
+    "verifyCommand": "emacs --version",
+    "tags": [ "editor" ]
+  },
+  {
+    "id": "intellij-community",
+    "name": "IntelliJ IDEA Community",
+    "category": "Editors and IDEs",
+    "description": "Free JetBrains IDE for Java, Kotlin, and JVM basics.",
+    "preset": "Essential",
+    "wingetId": "JetBrains.IntelliJIDEA.Community",
+    "tags": [ "java", "ide" ]
+  },
+  {
+    "id": "intellij-ultimate",
+    "name": "IntelliJ IDEA Ultimate",
+    "category": "Editors and IDEs",
+    "description": "Premium JetBrains IDE for Java, Spring, web, database, and enterprise development.",
+    "preset": "Optional",
+    "premium": true,
+    "wingetId": "JetBrains.IntelliJIDEA.Ultimate",
+    "tags": [ "java", "spring", "premium" ]
+  },
+  {
+    "id": "pycharm",
+    "name": "PyCharm",
+    "category": "Editors and IDEs",
+    "description": "JetBrains Python IDE. Premium features may require a license depending on edition and feature.",
+    "preset": "Full",
+    "wingetId": "JetBrains.PyCharm.Community",
+    "tags": [ "python", "ide" ]
+  },
+  {
+    "id": "pycharm-professional",
+    "name": "PyCharm Professional",
+    "category": "Editors and IDEs",
+    "description": "Premium JetBrains Python IDE for Django, Flask, scientific, database, and web work.",
+    "preset": "Optional",
+    "premium": true,
+    "wingetId": "JetBrains.PyCharm.Professional",
+    "tags": [ "python", "premium" ]
+  },
+  {
+    "id": "android-studio",
+    "name": "Android Studio",
+    "category": "Editors and IDEs",
+    "description": "Official Android app development IDE.",
+    "preset": "Optional",
+    "wingetId": "Google.AndroidStudio",
+    "tags": [ "android", "mobile" ]
+  },
+  {
+    "id": "eclipse",
+    "name": "Eclipse IDE",
+    "category": "Editors and IDEs",
+    "description": "Classic Java and plugin-based IDE.",
+    "preset": "Optional",
+    "wingetId": "EclipseFoundation.EclipseIDEforJavaDevelopers",
+    "tags": [ "java", "ide" ]
+  },
+  {
+    "id": "vscode-extensions",
+    "name": "VS Code Engineering Extensions",
+    "category": "Frameworks and Libraries",
+    "description": "Installs common VS Code extensions for Python, Java, C/C++, C#, Docker, GitHub, ESLint, Prettier, Jupyter, PHP, and GitLens.",
+    "preset": "Full",
+    "command": "code --install-extension ms-python.python; code --install-extension ms-python.vscode-pylance; code --install-extension ms-toolsai.jupyter; code --install-extension ms-vscode.cpptools; code --install-extension ms-dotnettools.csharp; code --install-extension vscjava.vscode-java-pack; code --install-extension dbaeumer.vscode-eslint; code --install-extension esbenp.prettier-vscode; code --install-extension ms-azuretools.vscode-docker; code --install-extension eamodio.gitlens; code --install-extension xdebug.php-debug; code --install-extension ziglang.vscode-zig",
+    "verifyCommand": "code --list-extensions",
+    "tags": [ "vscode", "extensions" ]
+  },
+  {
+    "id": "cursor",
+    "name": "Cursor",
+    "category": "AI Coding Tools",
+    "description": "AI-first code editor. Some features require paid plans.",
+    "preset": "AI",
+    "premium": true,
+    "wingetId": "Anysphere.Cursor",
+    "tags": [ "ai", "editor" ]
+  },
+  {
+    "id": "claude-desktop",
+    "name": "Claude Desktop",
+    "category": "AI Coding Tools",
+    "description": "Anthropic Claude desktop app. Paid plans may unlock higher limits and features.",
+    "preset": "AI",
+    "premium": true,
+    "wingetId": "Anthropic.Claude",
+    "tags": [ "ai" ]
+  },
+  {
+    "id": "chatgpt",
+    "name": "ChatGPT Desktop",
+    "category": "AI Coding Tools",
+    "description": "OpenAI ChatGPT desktop app or official download page fallback.",
+    "preset": "AI",
+    "premium": true,
+    "wingetId": "OpenAI.ChatGPT",
+    "url": "https://chatgpt.com/download",
+    "tags": [ "ai", "openai" ]
+  },
+  {
+    "id": "gemini",
+    "name": "Gemini Web App",
+    "category": "AI Coding Tools",
+    "description": "Google Gemini resource shortcut.",
+    "preset": "AI",
+    "premium": true,
+    "url": "https://gemini.google.com/",
+    "tags": [ "ai", "google" ]
+  },
+  {
+    "id": "codex-cli",
+    "name": "OpenAI Codex CLI",
+    "category": "AI Coding Tools",
+    "description": "OpenAI Codex command-line coding agent. Installs through npm after Node.js is available.",
+    "preset": "AI",
+    "premium": true,
+    "command": "npm install -g @openai/codex",
+    "verifyCommand": "codex --version",
+    "tags": [ "ai", "openai", "cli" ]
+  },
+  {
+    "id": "github-copilot",
+    "name": "GitHub Copilot",
+    "category": "AI Coding Tools",
+    "description": "Premium AI coding assistant. Opens the official setup page because IDE login and subscription are required.",
+    "preset": "AI",
+    "premium": true,
+    "url": "https://github.com/features/copilot",
+    "tags": [ "ai", "premium" ]
+  },
+  {
+    "id": "python",
+    "name": "Python",
+    "category": "Languages and Runtimes",
+    "description": "Python runtime with launcher and PATH registration.",
+    "preset": "Essential",
+    "wingetId": "Python.Python.3.12",
+    "verifyCommand": "python --version",
+    "tags": [ "python" ]
+  },
+  {
+    "id": "python-libs",
+    "name": "Python Core Libraries",
+    "category": "Frameworks and Libraries",
+    "description": "Common Python packages for data, web, testing, formatting, notebooks, scraping, and APIs.",
+    "preset": "Full",
+    "command": "py -m pip install --upgrade pip setuptools wheel numpy pandas matplotlib seaborn scikit-learn scipy jupyter notebook ipykernel requests beautifulsoup4 lxml flask django fastapi uvicorn sqlalchemy psycopg2-binary pytest black ruff mypy virtualenv",
+    "verifyCommand": "py -m pip --version",
+    "tags": [ "python", "libraries" ]
+  },
+  {
+    "id": "java-jdk",
+    "name": "Java JDK 21",
+    "category": "Languages and Runtimes",
+    "description": "LTS Java Development Kit for Java and Spring Boot.",
+    "preset": "Essential",
+    "wingetId": "EclipseAdoptium.Temurin.21.JDK",
+    "verifyCommand": "java --version",
+    "tags": [ "java" ]
+  },
+  {
+    "id": "maven",
+    "name": "Apache Maven",
+    "category": "Frameworks and Libraries",
+    "description": "Java build tool commonly used with Spring Boot.",
+    "preset": "Full",
+    "wingetId": "Apache.Maven",
+    "verifyCommand": "mvn --version",
+    "tags": [ "java", "spring" ]
+  },
+  {
+    "id": "gradle",
+    "name": "Gradle",
+    "category": "Frameworks and Libraries",
+    "description": "Modern JVM build system used for Java, Kotlin, Android, and Spring projects.",
+    "preset": "Full",
+    "wingetId": "Gradle.Gradle",
+    "verifyCommand": "gradle --version",
+    "tags": [ "java", "spring" ]
+  },
+  {
+    "id": "nodejs",
+    "name": "Node.js LTS",
+    "category": "Languages and Runtimes",
+    "description": "JavaScript runtime and npm package manager.",
+    "preset": "Essential",
+    "wingetId": "OpenJS.NodeJS.LTS",
+    "verifyCommand": "node --version",
+    "tags": [ "javascript", "typescript" ]
+  },
+  {
+    "id": "mern-global-tools",
+    "name": "MERN Global Tools",
+    "category": "Frameworks and Libraries",
+    "description": "TypeScript, Vite, Express generator, nodemon, pnpm, yarn, and common frontend/backend CLI tools.",
+    "preset": "Full",
+    "command": "npm install -g typescript ts-node vite create-vite express-generator nodemon pnpm yarn npm-check-updates eslint prettier",
+    "verifyCommand": "npm --version",
+    "tags": [ "mern", "javascript", "typescript" ]
+  },
+  {
+    "id": "mongodb",
+    "name": "MongoDB Community Server",
+    "category": "Databases",
+    "description": "Document database commonly used in MERN projects.",
+    "preset": "Full",
+    "wingetId": "MongoDB.Server",
+    "tags": [ "database", "mern" ]
+  },
+  {
+    "id": "mongodb-compass",
+    "name": "MongoDB Compass",
+    "category": "Databases",
+    "description": "GUI for MongoDB databases.",
+    "preset": "Full",
+    "wingetId": "MongoDB.Compass.Full",
+    "tags": [ "database", "mern" ]
+  },
+  {
+    "id": "dotnet-sdk",
+    "name": ".NET SDK",
+    "category": "Languages and Runtimes",
+    "description": "C# and .NET SDK for console, web, API, desktop, and cloud development.",
+    "preset": "Essential",
+    "wingetId": "Microsoft.DotNet.SDK.8",
+    "verifyCommand": "dotnet --version",
+    "tags": [ "csharp", "dotnet" ]
+  },
+  {
+    "id": "php",
+    "name": "PHP",
+    "category": "Languages and Runtimes",
+    "description": "PHP runtime for web development.",
+    "preset": "Full",
+    "wingetId": "PHP.PHP.8.3",
+    "verifyCommand": "php --version",
+    "tags": [ "php" ]
+  },
+  {
+    "id": "composer",
+    "name": "Composer",
+    "category": "Frameworks and Libraries",
+    "description": "PHP dependency manager used by Laravel and Symfony.",
+    "preset": "Full",
+    "wingetId": "Composer.Composer",
+    "verifyCommand": "composer --version",
+    "tags": [ "php" ]
+  },
+  {
+    "id": "zig",
+    "name": "Zig",
+    "category": "Languages and Runtimes",
+    "description": "Zig programming language toolchain.",
+    "preset": "Full",
+    "wingetId": "zig.zig",
+    "verifyCommand": "zig version",
+    "tags": [ "zig" ]
+  },
+  {
+    "id": "go",
+    "name": "Go",
+    "category": "Languages and Runtimes",
+    "description": "Go programming language.",
+    "preset": "Optional",
+    "wingetId": "GoLang.Go",
+    "verifyCommand": "go version",
+    "tags": [ "go" ]
+  },
+  {
+    "id": "rust",
+    "name": "Rust",
+    "category": "Languages and Runtimes",
+    "description": "Rust toolchain through rustup.",
+    "preset": "Optional",
+    "wingetId": "Rustlang.Rustup",
+    "verifyCommand": "rustc --version",
+    "tags": [ "rust" ]
+  },
+  {
+    "id": "cmake",
+    "name": "CMake",
+    "category": "C and C++ Toolchain",
+    "description": "Cross-platform C/C++ build configuration tool.",
+    "preset": "Full",
+    "wingetId": "Kitware.CMake",
+    "verifyCommand": "cmake --version",
+    "tags": [ "c", "cpp" ]
+  },
+  {
+    "id": "llvm",
+    "name": "LLVM / Clang",
+    "category": "C and C++ Toolchain",
+    "description": "LLVM compiler tools including clang and clang++.",
+    "preset": "Full",
+    "wingetId": "LLVM.LLVM",
+    "verifyCommand": "clang --version",
+    "tags": [ "c", "cpp" ]
+  },
+  {
+    "id": "mingw",
+    "name": "MSYS2 / MinGW",
+    "category": "C and C++ Toolchain",
+    "description": "Unix-like build environment and GCC toolchain for Windows.",
+    "preset": "Full",
+    "wingetId": "MSYS2.MSYS2",
+    "tags": [ "c", "cpp" ]
+  },
+  {
+    "id": "ninja",
+    "name": "Ninja Build",
+    "category": "C and C++ Toolchain",
+    "description": "Fast build system often used with CMake.",
+    "preset": "Full",
+    "wingetId": "Ninja-build.Ninja",
+    "verifyCommand": "ninja --version",
+    "tags": [ "c", "cpp" ]
+  },
+  {
+    "id": "postgresql",
+    "name": "PostgreSQL",
+    "category": "Databases",
+    "description": "Relational database for backend and data projects.",
+    "preset": "Optional",
+    "wingetId": "PostgreSQL.PostgreSQL",
+    "tags": [ "database" ]
+  },
+  {
+    "id": "mysql",
+    "name": "MySQL",
+    "category": "Databases",
+    "description": "Relational database used in many web and enterprise stacks.",
+    "preset": "Optional",
+    "wingetId": "Oracle.MySQL",
+    "tags": [ "database" ]
+  },
+  {
+    "id": "sqlite-browser",
+    "name": "DB Browser for SQLite",
+    "category": "Databases",
+    "description": "Lightweight GUI for SQLite databases.",
+    "preset": "Full",
+    "wingetId": "DBBrowserForSQLite.DBBrowserForSQLite",
+    "tags": [ "database" ]
+  },
+  {
+    "id": "chrome",
+    "name": "Google Chrome",
+    "category": "Browsers",
+    "description": "Fast mainstream browser for web development and testing.",
+    "preset": "Essential",
+    "wingetId": "Google.Chrome",
+    "tags": [ "browser" ]
+  },
+  {
+    "id": "firefox-developer",
+    "name": "Firefox Developer Edition",
+    "category": "Browsers",
+    "description": "Firefox browser channel focused on web developers.",
+    "preset": "Full",
+    "wingetId": "Mozilla.Firefox.DeveloperEdition",
+    "tags": [ "browser" ]
+  },
+  {
+    "id": "brave",
+    "name": "Brave Browser",
+    "category": "Browsers",
+    "description": "Chromium-based browser with privacy-oriented defaults.",
+    "preset": "Optional",
+    "wingetId": "Brave.Brave",
+    "tags": [ "browser" ]
+  },
+  {
+    "id": "mit-ocw",
+    "name": "MIT OpenCourseWare",
+    "category": "Learning Resources",
+    "description": "Free MIT course materials, including CS and engineering classes.",
+    "preset": "Essential",
+    "url": "https://ocw.mit.edu/",
+    "tags": [ "courses" ]
+  },
+  {
+    "id": "cs50",
+    "name": "Harvard CS50",
+    "category": "Learning Resources",
+    "description": "Excellent introductory computer science course.",
+    "preset": "Essential",
+    "url": "https://cs50.harvard.edu/x/",
+    "tags": [ "courses" ]
+  },
+  {
+    "id": "google-courses",
+    "name": "Google Developer Learning",
+    "category": "Learning Resources",
+    "description": "Google courses, codelabs, Android, cloud, web, and AI learning resources.",
+    "preset": "Full",
+    "url": "https://developers.google.com/learn",
+    "tags": [ "courses", "google" ]
+  },
+  {
+    "id": "microsoft-learn",
+    "name": "Microsoft Learn",
+    "category": "Learning Resources",
+    "description": "Microsoft courses for .NET, Azure, GitHub, AI, Windows, and developer tools.",
+    "preset": "Full",
+    "url": "https://learn.microsoft.com/training/",
+    "tags": [ "courses", "microsoft" ]
+  },
+  {
+    "id": "freecodecamp",
+    "name": "freeCodeCamp",
+    "category": "Learning Resources",
+    "description": "Free full-stack, data, backend, and certification courses.",
+    "preset": "Essential",
+    "url": "https://www.freecodecamp.org/learn/",
+    "tags": [ "courses", "youtube" ]
+  },
+  {
+    "id": "roadmap-sh",
+    "name": "roadmap.sh",
+    "category": "Learning Resources",
+    "description": "Developer roadmaps for frontend, backend, DevOps, AI, databases, and more.",
+    "preset": "Full",
+    "url": "https://roadmap.sh/",
+    "tags": [ "roadmap" ]
+  },
+  {
+    "id": "youtube-core",
+    "name": "YouTube CS Course Pack",
+    "category": "Learning Resources",
+    "description": "Opens a curated starter set: freeCodeCamp, MIT OpenCourseWare, Neso Academy, Abdul Bari, Fireship, ThePrimeagen, and Computerphile.",
+    "preset": "Full",
+    "command": "Start-Process 'https://www.youtube.com/@freecodecamp'; Start-Process 'https://www.youtube.com/@mitocw'; Start-Process 'https://www.youtube.com/@nesoacademy'; Start-Process 'https://www.youtube.com/@abdul_bari'; Start-Process 'https://www.youtube.com/@Fireship'; Start-Process 'https://www.youtube.com/@ThePrimeTimeagen'; Start-Process 'https://www.youtube.com/@Computerphile'",
+    "tags": [ "youtube", "courses" ]
+  }
+]
